@@ -1,6 +1,10 @@
 <!DOCTYPE html>
-<html lang="en"
+<html lang="en">
 <head>
+  <% if (htmlWebpackPlugin.options.sentryKey) { %>
+  <script src="https://cdn.ravenjs.com/3.24.0/raven.min.js" crossorigin="anonymous"></script>
+  <script>Raven.config('https://' + '<%=htmlWebpackPlugin.options.sentryKey%>' + '@sentry.io/607713').install();</script>
+  <% } %>
   <meta charset="UTF-8">
 </head>
 <body>
@@ -17,6 +21,5 @@
 
     </tbody>
   </table>
-  <script src="bundle.js"></script>
 </body>
 </html>
